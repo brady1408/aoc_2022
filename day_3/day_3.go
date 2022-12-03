@@ -5,7 +5,6 @@ import (
 	"strings"
 
 	"github.com/samber/lo"
-	// lop "github.com/samber/lo/parallel"
 )
 
 const key string = `_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ`
@@ -63,10 +62,6 @@ func Part2() {
 
 func getRucksacks(in string) []rucksack {
 	rucksacks := []rucksack{}
-	// inSlice := []string{}
-	// for _, v := range in {
-	// 	inSlice = append(inSlice, string(v))
-	// }
 
 	for k, v := range strings.Split(in, "\n") {
 		r := rucksack{
@@ -75,7 +70,7 @@ func getRucksacks(in string) []rucksack {
 			compartmentA: v[:(len(v) / 2)],
 			compartmentB: v[(len(v) / 2):],
 		}
-		fmt.Println(r.uniqueItems)
+
 		hash := make(map[string]bool)
 		for _, v := range r.compartmentA {
 			hash[string(v)] = true
